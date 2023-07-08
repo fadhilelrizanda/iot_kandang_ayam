@@ -13,8 +13,7 @@ function Content() {
   const [dataStartTime, setDataStartTime] = useState(0);
   const [dataEndTime, setDataEndTime] = useState(0);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
     console.log("Data Condition : " + dataCondition);
     console.log("Data dataRelay1 : " + dataRelay1);
     console.log("Data dataRelay2 : " + dataRelay2);
@@ -69,38 +68,38 @@ function Content() {
                 <div className="row p-4">
                   <div className="col-md-3">
                     <h4>
-                      <FiAirplay /> State : {data.condition}
+                      <FiAirplay /> State : {data["condition"]}
                     </h4>
                   </div>
                   <div className="col-md-3">
                     <h4>
                       <AiFillBulb />
-                      Bulb 1 : {data.relay1}
+                      Bulb 1 : {data["relay1"]}
                     </h4>
                   </div>
                   <div className="col-md-3">
                     <h4>
                       <AiFillBulb />
-                      Bulp 2 : {data.relay2}
+                      Bulp 2 : {data["relay2"]}
                     </h4>
                   </div>
                   <div className="col-md-3">
                     <h4>
                       <AiFillBulb />
-                      Bulp 3 : {data.relay3}
+                      Bulp 3 : {data["relay3"]}
                     </h4>
                   </div>
                 </div>
                 <div className="row p-4 justify-content-center">
                   <div className="col-md-3">
                     <h4>
-                      <CiAlarmOn /> Start Time : {data.startTime}
+                      <CiAlarmOn /> Start Time : {data["startTime"]}
                     </h4>
                   </div>
                   <div className="col-md-3">
                     <h4>
                       <CiAlarmOn />
-                      End Time : {data.endTime}
+                      End Time : {data["endTime"]}
                     </h4>
                   </div>
                 </div>
@@ -119,7 +118,7 @@ function Content() {
               </h4>
               <div className="form-check form-switch">
                 <input
-                  onChange={(e) => setDataCondition(e.target.value)}
+                  onChange={(e) => setDataCondition(parseInt(e.target.value))}
                   value="1"
                   className="form-check-input"
                   type="checkbox"
@@ -142,7 +141,7 @@ function Content() {
               </h4>
               <div className="form-check form-switch">
                 <input
-                  onChange={(e) => setDataRelay1(e.target.value)}
+                  onChange={(e) => setDataRelay1(parseInt(e.target.value))}
                   value="1"
                   className="form-check-input"
                   type="checkbox"
@@ -164,7 +163,7 @@ function Content() {
               </h4>
               <div className="form-check form-switch">
                 <input
-                  onChange={(e) => setDataRelay2(e.target.value)}
+                  onChange={(e) => setDataRelay2(parseInt(e.target.value))}
                   value="1"
                   className="form-check-input"
                   type="checkbox"
@@ -187,7 +186,7 @@ function Content() {
               </h4>
               <div className="form-check form-switch">
                 <input
-                  onChange={(e) => setDataRelay3(e.target.value)}
+                  onChange={(e) => setDataRelay3(parseInt(e.target.value))}
                   value={1}
                   className="form-check-input"
                   type="checkbox"
@@ -209,7 +208,7 @@ function Content() {
                 Start Time
               </h4>
               <select
-                onChange={(e) => setDataStartTime(e.target.value)}
+                onChange={(e) => setDataStartTime(parseInt(e.target.value))}
                 className="form-select"
                 aria-label="Default select example"
                 defaultValue={dataStartTime}
@@ -247,7 +246,7 @@ function Content() {
                 <CiAlarmOn /> End Time
               </h4>
               <select
-                onChange={(e) => setDataEndTime(e.target.value)}
+                onChange={(e) => setDataEndTime(parseInt(e.target.value))}
                 className="form-select"
                 aria-label="Default select example"
                 defaultValue={dataEndTime}
