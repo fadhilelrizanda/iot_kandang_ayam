@@ -22,6 +22,10 @@ function Content() {
     console.log("Data dataStartTime : " + dataStartTime);
     console.log("Data dataEndTime : " + dataEndTime);
 
+    function refreshPage() {
+      window.location.reload();
+    }
+
     const post = {
       condition: dataCondition,
       relay1: dataRelay1,
@@ -36,6 +40,8 @@ function Content() {
         post
       );
       console.log(res.data);
+      alert("data submitted");
+      refreshPage();
     } catch (e) {
       alert(e);
     }
