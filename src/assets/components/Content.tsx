@@ -14,6 +14,7 @@ function Content() {
   const [dataEndTime, setDataEndTime] = useState(0);
 
   const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     console.log("Data Condition : " + dataCondition);
     console.log("Data dataRelay1 : " + dataRelay1);
     console.log("Data dataRelay2 : " + dataRelay2);
